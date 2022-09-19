@@ -4,7 +4,7 @@
   "meta": {
     "name": "Aeternum Map",
     "author": "Leon Machens",
-    "version": "1.16.0",
+    "version": "2.12.1",
     "minimum-overwolf-version": "0.169.0",
     "description": "New World Interactive Map",
     "dock_button_title": "Aeternum Map",
@@ -13,31 +13,35 @@
     "launcher_icon": "icons/desktopIcon.ico",
     "window_icon": "icons/taskbarIcon.png"
   },
-  "permissions": ["Hotkeys", "GameInfo", "Media", "FileSystem", "DesktopStreaming"],
+  "permissions": ["Hotkeys", "GameInfo", "Media", "FileSystem", "DesktopStreaming", "Clipboard"],
   "data": {
     "start_window": "background",
     "windows": {
       "background": {
         "file": "background.html",
-        "debug_url": "http://localhost:3000/background.html",
+        "debug_url": "http://localhost:5173/background.html",
         "is_background_page": true,
         "allow_local_file_access": true
       },
       "desktop": {
-        "file": "index.html",
-        "debug_url": "http://localhost:3000",
+        "file": "sender.html",
+        "debug_url": "http://localhost:5173/sender.html",
         "desktop_only": true,
         "native_window": true,
         "resizable": false,
         "transparent": true,
-        "override_on_update": false,
+        "override_on_update": true,
         "size": {
-          "width": 1280,
-          "height": 720
+          "width": 400,
+          "height": 660
         },
         "min_size": {
-          "width": 860,
-          "height": 600
+          "width": 400,
+          "height": 660
+        },
+        "max_size": {
+          "width": 400,
+          "height": 660
         },
         "allow_local_file_access": true,
         "popup_blocker": true,
@@ -45,32 +49,9 @@
         "keep_window_location": true,
         "disable_hardware_acceleration": true
       },
-      "overlay": {
-        "file": "index.html",
-        "debug_url": "http://localhost:3000",
-        "desktop_only": false,
-        "in_game_only": true,
-        "focus_game_takeover": "ReleaseOnHidden",
-        "focus_game_takeover_release_hotkey": "show_hide_app",
-        "resizable": false,
-        "transparent": true,
-        "override_on_update": false,
-        "size": {
-          "width": 1280,
-          "height": 720
-        },
-        "min_size": {
-          "width": 860,
-          "height": 600
-        },
-        "allow_local_file_access": true,
-        "popup_blocker": true,
-        "mute": true,
-        "keep_window_location": true
-      },
       "minimap": {
         "file": "minimap.html",
-        "debug_url": "http://localhost:3000/minimap.html",
+        "debug_url": "http://localhost:5173/minimap.html",
         "desktop_only": false,
         "in_game_only": true,
         "style": "inputPassThrough",
@@ -88,7 +69,8 @@
         "allow_local_file_access": true,
         "popup_blocker": true,
         "mute": true,
-        "keep_window_location": true
+        "keep_window_location": true,
+        "restrict_to_game_bounds": true
       }
     },
     "game_targeting": {
@@ -109,32 +91,52 @@
         "action-type": "custom",
         "default": "F4"
       },
-      "setup_minimap": {
-        "title": "Setup Minimap",
-        "action-type": "custom",
-        "default": "F5"
-      },
       "show_hide_minimap": {
         "title": "Show/Hide Minimap",
         "action-type": "custom",
-        "default": "F6"
+        "default": "F5"
+      },
+      "setup_minimap": {
+        "title": "Setup Minimap",
+        "action-type": "custom",
+        "default": "Ctrl+F5"
       },
       "zoom_in_minimap": {
         "title": "Zoom In Minimap",
         "action-type": "custom",
-        "default": "F7"
+        "default": "F6"
       },
       "zoom_out_minimap": {
         "title": "Zoom Out Minimap",
         "action-type": "custom",
+        "default": "F7"
+      },
+      "zoom_in_map": {
+        "title": "Zoom In Map (Website)",
+        "action-type": "custom",
         "default": "F8"
+      },
+      "zoom_out_map": {
+        "title": "Zoom Out Map (Website)",
+        "action-type": "custom",
+        "default": "F9"
+      },
+      "marker_action": {
+        "title": "Interact with near marker (Website)",
+        "action-type": "custom",
+        "default": "F10"
+      },
+      "show_hide_direction": {
+        "title": "Show/Hide Direction (Website)",
+        "action-type": "custom",
+        "default": "F11"
       }
     },
     "protocol_override_domains": {
       "googlesyndication": "http"
     },
     "externally_connectable": {
-      "matches": ["http://localhost:6006", "http://localhost:3000"]
+      "matches": ["http://localhost:6006", "http://localhost:5173", "https://aeternum-map.gg"]
     },
     "force_browser": "user",
     "developer": {

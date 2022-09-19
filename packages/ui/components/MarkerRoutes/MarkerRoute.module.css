@@ -1,0 +1,62 @@
+.container {
+  display: grid;
+  padding: 0.25em 3em 0.25em 0.5em;
+  row-gap: 0.2rem;
+  text-transform: uppercase;
+  transition: 0.2s background-color ease-in;
+  position: relative;
+  border-left: 2px solid transparent;
+}
+
+.container:hover {
+  cursor: pointer;
+  background-color: var(--color-shade-three);
+}
+
+.regions {
+  font-size: 0.8em;
+  color: var(--color-secondary);
+}
+
+.selected {
+  border-color: var(--color-primary);
+  background-color: var(--color-shade-two);
+}
+
+.title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--color-primary);
+}
+
+.info {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.actions {
+  position: absolute;
+  z-index: 1;
+  top: 0.25rem;
+  right: 0.25rem;
+  display: grid;
+  gap: 0.4em;
+}
+
+.public {
+  color: var(--color-secondary);
+}
+
+.private {
+  color: lightgreen;
+}
+
+.notOwner {
+  color: lightgray;
+}
+
+.owner {
+  color: rgb(184 255 255);
+}

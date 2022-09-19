@@ -1,5 +1,6 @@
 node_modules
 .DS_Store
+dist
 /dist/overwolf
 !/dist/overwolf/manifest.json
 !/dist/overwolf/icons
@@ -8,3 +9,5 @@ dist-ssr
 *.local
 .eslintcache
 /data
+*.js
+*.d.ts

@@ -3,7 +3,7 @@ name: Build Overwolf App CI
 on:
   push:
     tags:
-      - v*
+      - v*-overwolf
 
 jobs:
   build:
@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [16.x]
 
     steps:
       - name: Install git for Git URLs as dependencies
@@ -25,7 +25,9 @@ jobs:
       - name: Build Overwolf App
         env:
           VITE_API_ENDPOINT: ${{ secrets.VITE_API_ENDPOINT }}
-        run: npm run client:build
+          VITE_PLAUSIBLE_API_HOST: 'https://apps.machens.dev'
+          VITE_PLAUSIBLE_DOMAIN: 'aeternum-map.gg-app'
+        run: npm run build -- --filter=overwolf
       - name: Archive Release
         uses: thedoctor0/zip-release@master
         with:

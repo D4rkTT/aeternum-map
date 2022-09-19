@@ -2,6 +2,9 @@
 
 Get all the locations, farming spots, resources, lore documents, chests, mobs and more!
 
+- [Website](https://aeternum-map.gg)
+- [Download Overwolf app](https://www.overwolf.com/app/Leon_Machens-Aeternum_Map)
+
 ## Features
 
 - Live Tracking of your In-Game position
@@ -34,12 +37,20 @@ cp template.env .env
 
 The following list shows the variables you need to set:
 
-| KEY               | VALUE                                                           |
-| ----------------- | --------------------------------------------------------------- |
-| PORT              | Port for the server environment                                 |
-| MONGODB_URI       | URI of your MongoDB server                                      |
-| VITE_API_ENDPOINT | URL of your server environment                                  |
-| SCREENSHOTS_PATH  | Server side path to a folder in which screenshots will be saved |
+| KEY                         | VALUE                                                                                                   |
+| --------------------------- | ------------------------------------------------------------------------------------------------------- |
+| PORT                        | Port for the server environment                                                                         |
+| MONGODB_URI                 | URI of your MongoDB server                                                                              |
+| VITE_API_ENDPOINT           | URL of your server environment                                                                          |
+| SCREENSHOTS_PATH            | Server side path to a folder in which screenshots will be saved                                         |
+| DISCORD_PUBLIC_WEBHOOK_URL  | Discord Webhook for public activity log                                                                 |
+| DISCORD_PRIVATE_WEBHOOK_URL | Discord Webhook for private activity log                                                                |
+| STEAM_API_KEY               | [Steam API](https://steamcommunity.com/dev/apikey) key required for oAuth                               |
+| SESSION_SECRET              | Secret used to sign the session cookie                                                                  |
+| NO_SOCKET                   | Run server without Socket for live position. Useful if you run multiple servers. Possible value: "true" |
+| NO_API                      | Run server without API and database. Useful if you run multiple servers. . Possible value: "true"       |
+| VITE_PLAUSIBLE_API_HOST     | Hostname of Plausible service                                                                           |
+| VITE_PLAUSIBLE_DOMAIN       | Name of the website on Plausible                                                                        |
 
 ### Install dependencies
 
@@ -70,7 +81,7 @@ Based on this [guide](https://overwolf.github.io/docs/start/sample-app-overview#
 
 - Click on "Development options".
 
-- In the opened window, click on "Load unpacked extension" and select the extracted 'ts/dist' folder.
+- In the opened window, click on "Load unpacked extension" and select the extracted '/dist/overwolf' folder.
   This will add the app to your Overwolf dock.
 
 - Make sure you are logged in to the OW client. Otherwise, you will get an "Unauthorized App" error message. (Click on the "Appstore" icon in the OW dock to login to the OW client).

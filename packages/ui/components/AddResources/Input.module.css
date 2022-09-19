@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  column-gap: 0.5em;
+}
+
+.label {
+  font-size: 0.7em;
+  width: 1.2rem;
+  height: 1.2rem;
+  text-align: center;
+  cursor: pointer;
+  padding: 0.1rem;
+  background-color: var(--color-shade-two);
+  transition: 0.2s ease-in;
+}
+
+.label > input {
+  display: none;
+}
+
+.active {
+  color: var(--color-primary);
+}
